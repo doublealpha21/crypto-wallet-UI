@@ -1,18 +1,8 @@
+import 'package:crypto_ui/home_page.dart';
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(const MaterialApp(
+  runApp(MaterialApp(
     home: HomePage(),
   ));
 }
-
-class HomePage extends StatelessWidget {
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-
-    );
-  }
-}
-
