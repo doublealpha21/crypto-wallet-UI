@@ -1,14 +1,14 @@
 import 'package:crypto_ui/coin_tile.dart';
 import 'package:flutter/material.dart';
 
-class Wallet extends StatefulWidget {
-  const Wallet({super.key});
+class WalletPage extends StatefulWidget {
+  const WalletPage({super.key});
 
   @override
-  _WalletState createState() => _WalletState();
+  _WalletPageState createState() => _WalletPageState();
 }
 
-class _WalletState extends State<Wallet> {
+class _WalletPageState extends State<WalletPage> {
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -18,7 +18,10 @@ class _WalletState extends State<Wallet> {
           decoration: const BoxDecoration(
             color: Colors.teal,
             borderRadius: BorderRadius.only(
-              bottomLeft: Radius.elliptical(200, 40),
+              bottomLeft: Radius.elliptical(
+                200,
+                40,
+              ),
               bottomRight: Radius.elliptical(
                 200,
                 40,

@@ -1,5 +1,5 @@
 import 'package:crypto_ui/home_page.dart';
-import 'package:crypto_ui/wallet.dart';
+import 'package:crypto_ui/wallet_page.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -22,10 +22,11 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     List<Widget> widgets = [
       const HomePage(),
-      const Wallet(),
+      const WalletPage(),
       const Text('Coming Soon')
     ];
     return Scaffold(
+      backgroundColor: Colors.white.withOpacity(0.8),
       bottomNavigationBar: BottomNavigationBar(
         onTap: (index) {
           setState(() {
@@ -41,7 +42,6 @@ class _HomeState extends State<Home> {
           BottomNavigationBarItem(
               icon: Icon(Icons.person_2_outlined), label: 'Profile'),
         ],
-        backgroundColor: Colors.white.withOpacity(0.8),
       ),
       body: widgets.elementAt(selectedIndex),
     );
