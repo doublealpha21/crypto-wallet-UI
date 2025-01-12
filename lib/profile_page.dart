@@ -10,7 +10,7 @@ class ProfilePage extends StatefulWidget {
 class _ProfilePageState extends State<ProfilePage> {
   @override
   Widget build(BuildContext context) {
-    return Column(
+    return ListView(
       children: [
         Container(
           height: 230,
@@ -27,9 +27,14 @@ class _ProfilePageState extends State<ProfilePage> {
               ),
             ),
           ),
-          child: const Align(
+          child: Align(
             alignment: Alignment.center,
-            child: Text('Profile'),
+            child: Text(
+              'Profile',
+              style: Theme.of(context).textTheme.displayMedium?.copyWith(
+                    color: Colors.white,
+                  ),
+            ),
           ),
         ),
         const SizedBox(
@@ -40,7 +45,7 @@ class _ProfilePageState extends State<ProfilePage> {
           child: Stack(
             children: [
               Container(
-                height: 190,
+                height: 160,
                 width: double.infinity,
                 decoration: BoxDecoration(
                   color: Colors.teal[200],
@@ -48,23 +53,27 @@ class _ProfilePageState extends State<ProfilePage> {
                 ),
               ),
               Padding(
-                padding: EdgeInsets.fromLTRB(
+                padding: const EdgeInsets.fromLTRB(
                   10,
                   37,
                   0,
                   2,
                 ),
                 child: Container(
-                  height: 100,
-                  width: 100,
-                  decoration: BoxDecoration(shape: BoxShape.circle),
-                  child: Icon(Icons.person),
+                  height: 80,
+                  width: 80,
+                  decoration: const BoxDecoration(
+                    shape: BoxShape.circle,
+                    color: Colors.white,
+                  ),
+                  child: const Icon(Icons.person),
                 ),
               ),
-              Positioned(
+              const Positioned(
                 top: 30,
                 right: 35,
                 child: Column(
+                  mainAxisAlignment: MainAxisAlignment.end,
                   children: [
                     Text('Name'),
                     SizedBox(
@@ -81,28 +90,31 @@ class _ProfilePageState extends State<ProfilePage> {
             ],
           ),
         ),
-        SizedBox(
-          height: 12,
-        ),
-        EditProfile(
+        const EditProfile(
           title: 'Name',
           leadingIcon: Icon(Icons.person),
           trailingIcon: Icon(Icons.edit),
         ),
-        SizedBox(
+        const SizedBox(
           height: 12,
         ),
-        EditProfile(
+        const EditProfile(
           title: 'Photo',
           leadingIcon: Icon(Icons.photo),
           trailingIcon: Icon(Icons.edit),
         ),
-        EditProfile(
+        const SizedBox(
+          height: 12,
+        ),
+        const EditProfile(
           title: 'Address',
           leadingIcon: Icon(Icons.location_city),
           trailingIcon: Icon(Icons.edit),
         ),
-        EditProfile(
+        const SizedBox(
+          height: 12,
+        ),
+        const EditProfile(
           title: 'Contact',
           leadingIcon: Icon(Icons.phone),
           trailingIcon: Icon(Icons.edit),
@@ -128,12 +140,15 @@ class EditProfile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListTile(
-      tileColor: Colors.white,
-      onTap: onPressed,
-      leading: leadingIcon,
-      title: Text(title),
-      trailing: trailingIcon,
+    return Padding(
+      padding: const EdgeInsets.all(12.0),
+      child: ListTile(
+        tileColor: Colors.white,
+        onTap: onPressed,
+        leading: leadingIcon,
+        title: Text(title),
+        trailing: trailingIcon,
+      ),
     );
   }
 }

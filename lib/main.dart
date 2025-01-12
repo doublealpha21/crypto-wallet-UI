@@ -1,4 +1,5 @@
 import 'package:crypto_ui/home_page.dart';
+import 'package:crypto_ui/profile_page.dart';
 import 'package:crypto_ui/wallet_page.dart';
 import 'package:flutter/material.dart';
 
@@ -23,7 +24,7 @@ class _HomeState extends State<Home> {
     List<Widget> widgets = [
       const HomePage(),
       const WalletPage(),
-      const Text('Coming Soon')
+      const ProfilePage(),
     ];
     return Scaffold(
       backgroundColor: Colors.white.withOpacity(0.8),
