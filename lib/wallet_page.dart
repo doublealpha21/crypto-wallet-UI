@@ -1,3 +1,4 @@
+import 'package:crypto_font_icons/crypto_font_icons.dart';
 import 'package:crypto_ui/coin_tile.dart';
 import 'package:flutter/material.dart';
 
@@ -11,7 +12,7 @@ class WalletPage extends StatefulWidget {
 class _WalletPageState extends State<WalletPage> {
   @override
   Widget build(BuildContext context) {
-    return Column(
+    return ListView(
       children: [
         Container(
           height: 230,
@@ -20,64 +21,80 @@ class _WalletPageState extends State<WalletPage> {
             borderRadius: BorderRadius.only(
               bottomLeft: Radius.elliptical(
                 200,
-                40,
+                60,
               ),
               bottomRight: Radius.elliptical(
                 200,
-                40,
+                60,
               ),
             ),
           ),
-          child: const Align(
+          child: Align(
             alignment: Alignment.center,
-            child: Text('Wallet'),
+            child: Text(
+              'Wallet Balance',
+              style: Theme.of(context).textTheme.displayMedium?.copyWith(
+                    color: Colors.white,
+                  ),
+            ),
           ),
         ),
         const SizedBox(
           height: 20,
         ),
-        Text(
-          'Balance',
-          style: Theme.of(context)
-              .textTheme
-              .headlineMedium
-              ?.copyWith(color: Colors.green[400]),
+        CoinTile(
+          requiredIcon: CryptoFontIcons.BTC,
+          title: 'BTC 0.00',
+          subtitle: 'Subtitle',
+          background: Colors.yellow[900],
         ),
-        const SizedBox(
-          height: 20,
+        const CoinTile(
+          requiredIcon: CryptoFontIcons.ETH,
+          title: 'ETH 0.00',
+          subtitle: 'Sample Value',
+          background: Colors.purple,
         ),
-        ListView(
-          children: [
-            const CoinTile(
-              requiredIcon: Icon(Icons.currency_bitcoin_outlined),
-              title: 'BTC',
-              subtitle: 'Subtitle',
-            ),
-            const SizedBox(
-              height: 20,
-            ),
-            GestureDetector(
-              onTap: () {},
-              child: ListTile(
-                tileColor: Colors.white,
-                leading: Container(
-                  height: 50,
-                  width: 50,
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    color: Colors.white.withOpacity(0.7),
-                  ),
-                  child: const Icon(
-                    Icons.add,
-                    color: Colors.green,
-                  ),
+        CoinTile(
+          requiredIcon: CryptoFontIcons.DOGE,
+          title: 'DOGE 0.00',
+          subtitle: 'Sample Value',
+          background: Colors.yellowAccent[400],
+        ),
+        const CoinTile(
+          requiredIcon: CryptoFontIcons.XRP,
+          title: 'XRP 0.00',
+          subtitle: 'Sample Value',
+          background: Colors.black,
+        ),
+        const CoinTile(
+          requiredIcon: CryptoFontIcons.USDT,
+          title: 'USDT',
+          subtitle: 'Sample Value',
+          background: Colors.green,
+        ),
+        GestureDetector(
+          onTap: () {},
+          child: Padding(
+            padding: const EdgeInsets.all(12.0),
+            child: ListTile(
+              tileColor: Colors.white,
+              leading: Container(
+                height: 50,
+                width: 50,
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  color: Colors.white.withOpacity(0.7),
                 ),
-                title: const Text('Add Crypto'),
-                subtitle: const Text('Create Wallet To Crypto'),
+                child: const Icon(
+                  Icons.add,
+                  color: Colors.green,
+                ),
               ),
+              title: const Text('Add Crypto'),
+              subtitle: const Text('Create Wallet To Crypto'),
             ),
-          ],
-        )
+          ),
+        ),
       ],
     );
   }

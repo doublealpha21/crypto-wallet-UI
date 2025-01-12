@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class CoinTile extends StatelessWidget {
-  final Icon requiredIcon;
+  final IconData requiredIcon;
   final String title;
   final String subtitle;
   final Color? background;
@@ -29,9 +29,12 @@ class CoinTile extends StatelessWidget {
             shape: BoxShape.circle,
             color: background,
           ),
-          child: requiredIcon,
+          child: Icon(requiredIcon),
         ),
-        title: Text(title),
+        title: Text(
+          title,
+          style: Theme.of(context).textTheme.titleMedium,
+        ),
         subtitle: Text(subtitle),
         trailing: IconButton(
           onPressed: onPressed,
